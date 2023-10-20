@@ -226,6 +226,9 @@ impl Index {
             .map(|x| x.value())
             .unwrap_or(0);
 
+          // Print the current schema version
+          eprintln!("Current schema version: {}", schema_version);
+
           match schema_version.cmp(&SCHEMA_VERSION) {
           cmp::Ordering::Less =>
             bail!(
